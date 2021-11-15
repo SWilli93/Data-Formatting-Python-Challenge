@@ -150,3 +150,27 @@ for content in new_daily_transactions:
     new_content.append(new_items)
   transactions_clean.append(new_content)
 print(transactions_clean)
+
+# create new lists to consolidate data to be used
+
+customers = []
+sales = []
+thread_sold = []
+
+
+for transactions in transactions_clean:
+  customer_name = []
+  sale = []
+  thread_type = []
+  customer_name.append(transactions[0])
+  sale.append(transactions[1])
+  thread_type.append(transactions[2])
+  # print(customer_name)
+  # print(sale)
+  # print(thread_sold)
+  customers.append(customer_name)
+  sales.append(sale)
+  thread_sold.append(thread_type)
+
+# print(thread_sold)
+
