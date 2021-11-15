@@ -203,3 +203,34 @@ for item in new_sales:
   total_sales += float(stripped_item)
 
 print(total_sales)
+
+# finding the total amount of each thread sold
+
+#split the colors and add individuals to new list
+thread_sold_split = []
+for thread in new_thread_sold:
+  if "&" in thread:
+    split_thread = thread.split("&")
+    thread_sold_split.append(split_thread)
+  else:
+    thread_sold_split.append(thread)
+# print(thread_sold_split)
+
+#flatten the new list created
+flatten_thread_sold = flatten_list(thread_sold_split)
+# print(flatten_thread_sold)
+
+# function to count each color in the list
+def color_count(color):
+  count = 0
+  for color_sold in flatten_thread_sold:
+    if color == color_sold:
+      count += 1
+  return count
+
+# print(color_count("white"))
+
+colors = ['red','yellow','green','white','black','blue','purple']
+
+for color in colors:
+  print("Thred Shed sold {count} threads of {color} Today.".format(color=color, count=color_count(color)))
