@@ -116,7 +116,7 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 
 # All day, for each transaction, the name of the customer, amount spent, types of thread purchased, and the date of sale is all recorded in this same string. Your task is to use your Python skills to iterate through this string and clean up each transaction and store all the information in easier-to-access lists.
 
-
+# replace elements and separate individual transactions
 daily_sales_replaced = daily_sales.replace(";,;", " bob ")
 # print(daily_sales_replaced)
 new_daily_sales_replaced = daily_sales_replaced.strip('\n')
@@ -124,3 +124,29 @@ new_daily_sales_replaced = daily_sales_replaced.strip('\n')
 
 daily_transactions = new_daily_sales_replaced.split(",")
 # print(daily_transactions)
+
+
+# iterate through the data to take away non essential data
+daily_transactions_split = []
+for trans in daily_transactions:
+  # print(trans)
+  daily_transactions_split.append(trans.split(' , '))
+# print(daily_transactions_split)
+new_daily_transactions = []
+for block in daily_transactions_split:
+  for items in block:
+    new_items = items.split("bob ")
+    new_daily_transactions.append(new_items)
+# print(new_daily_transactions)
+
+
+# strip data down for more legible and usable data
+transactions_clean =[]
+for content in new_daily_transactions:
+  # print(content)
+  new_content = []
+  for items in content:
+    new_items = items.strip()
+    new_content.append(new_items)
+  transactions_clean.append(new_content)
+print(transactions_clean)
