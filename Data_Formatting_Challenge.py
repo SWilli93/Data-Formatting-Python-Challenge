@@ -174,3 +174,32 @@ for transactions in transactions_clean:
 
 # print(thread_sold)
 
+
+# flatten lists and calculate total made 
+def flatten_list(_2d_list):
+  flat_list = []
+  for element in _2d_list:
+      if type(element) is list:
+           # If the element is of type list, iterate through the sublist
+          for item in element:
+              flat_list.append(item)
+      else:
+          flat_list.append(element)
+  return flat_list
+
+new_customers = flatten_list(customers)
+new_thread_sold = flatten_list(thread_sold)
+new_sales = flatten_list(sales)
+# print(new_sales)
+# print(new_customers)
+# print(new_thread_sold)
+
+
+
+total_sales = 0
+for item in new_sales:
+  # print(item)
+  stripped_item = item.strip("$")
+  total_sales += float(stripped_item)
+
+print(total_sales)
